@@ -5,6 +5,6 @@ package at.aau.ase.androidnetworkwrapperexample.networking;
  */
 public interface Callback<T> {
 
-    public void callback(T argument);
+    void callback(T argument);
 
 }

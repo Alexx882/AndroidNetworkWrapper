@@ -1,9 +1,8 @@
 package at.aau.ase.androidnetworkwrapperexample.networking;
 
-import at.aau.ase.androidnetworkwrapperexample.networking.dto.BaseMessage;
-import jdk.nashorn.internal.codegen.CompilerConstants;
-
 import java.io.IOException;
+
+import at.aau.ase.androidnetworkwrapperexample.networking.dto.BaseMessage;
 
 public interface NetworkServer {
 

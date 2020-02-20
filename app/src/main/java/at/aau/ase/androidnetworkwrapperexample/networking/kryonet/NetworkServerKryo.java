@@ -1,16 +1,14 @@
 package at.aau.ase.androidnetworkwrapperexample.networking.kryonet;
 
-import at.aau.ase.androidnetworkwrapperexample.networking.Callback;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.kryonet.Server;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-import at.aau.ase.androidnetworkwrapperexample.networking.dto.BaseMessage;
+import at.aau.ase.androidnetworkwrapperexample.networking.Callback;
 import at.aau.ase.androidnetworkwrapperexample.networking.NetworkServer;
+import at.aau.ase.androidnetworkwrapperexample.networking.dto.BaseMessage;
 
 public class NetworkServerKryo implements NetworkServer {
     private Server server;
