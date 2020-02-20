@@ -1,18 +1,22 @@
 package at.aau.ase.androidnetworkwrapperexample.networking.kryonet;
 
+import at.aau.ase.androidnetworkwrapperexample.networking.Callback;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.kryonet.Server;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import at.aau.ase.androidnetworkwrapperexample.networking.dto.BaseMessage;
 import at.aau.ase.androidnetworkwrapperexample.networking.NetworkServer;
 
 public class NetworkServerKryo implements NetworkServer {
     private Server server;
+    private Callback<BaseMessage> messageCallback;
 
-    public NetworkServerKryo(){
+    public NetworkServerKryo() {
         server = new Server();
     }
 
@@ -26,26 +30,18 @@ public class NetworkServerKryo implements NetworkServer {
 
         server.addListener(new Listener() {
             public void received(Connection connection, Object object) {
-                receivedMessage(connection, object);
+                if (messageCallback != null && object instanceof BaseMessage)
+                    messageCallback.callback((BaseMessage) object);
             }
         });
     }
 
-    private void receivedMessage(Connection connection, Object object) {
-        System.out.println(object);
-//        if (object instanceof BaseMessage) {
-//            BaseMessage request = (BaseMessage) object;
-//            System.out.println(request.text);
-//
-//            BaseMessage response = new SomeResponse();
-//            response.text = "Thanks";
-//
-//        }
+    public void registerCallback(Callback<BaseMessage> callback) {
+        this.messageCallback = callback;
     }
 
-    public void sendMessage(BaseMessage message) {
-//        connection.sendTCP(message);
+    public void broadcastMessage(BaseMessage message) {
+        for (Connection connection : server.getConnections())
+            connection.sendTCP(message);
     }
-
-
 }

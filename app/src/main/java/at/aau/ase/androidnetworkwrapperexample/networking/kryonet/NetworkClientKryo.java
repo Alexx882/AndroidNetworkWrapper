@@ -1,5 +1,6 @@
 package at.aau.ase.androidnetworkwrapperexample.networking.kryonet;
 
+import at.aau.ase.androidnetworkwrapperexample.networking.Callback;
 import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
@@ -11,8 +12,9 @@ import at.aau.ase.androidnetworkwrapperexample.networking.NetworkClient;
 
 public class NetworkClientKryo implements NetworkClient {
     private Client client;
+    private Callback<BaseMessage> callback;
 
-    public NetworkClientKryo(){
+    public NetworkClientKryo() {
         client = new Client();
     }
 
@@ -26,17 +28,14 @@ public class NetworkClientKryo implements NetworkClient {
 
         client.addListener(new Listener() {
             public void received(Connection connection, Object object) {
-                receivedMessage(connection, object);
+                if (callback != null && object instanceof BaseMessage)
+                    callback.callback((BaseMessage) object);
             }
         });
     }
 
-    private void receivedMessage(Connection connection, Object object) {
-        System.out.println(object);
-        //        if (object instanceof SomeResponse) {
-//            SomeResponse response = (SomeResponse)object;
-//            System.out.println(response.text);
-//        }
+    public void registerCallback(Callback<BaseMessage> callback) {
+        this.callback = callback;
     }
 
     public void sendMessage(BaseMessage message) {

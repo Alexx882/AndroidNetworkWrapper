@@ -11,4 +11,8 @@ public class TextMessage extends BaseMessage {
 
     public String text;
 
+    @Override
+    public String toString() {
+        return String.format("TextMessage: %s", text);
+    }
 }
