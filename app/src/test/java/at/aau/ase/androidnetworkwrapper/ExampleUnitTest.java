@@ -1,4 +1,4 @@
-package at.aau.ase.androidnetworkwrapperexample;
+package at.aau.ase.androidnetworkwrapper;
 
 import org.junit.Test;
 

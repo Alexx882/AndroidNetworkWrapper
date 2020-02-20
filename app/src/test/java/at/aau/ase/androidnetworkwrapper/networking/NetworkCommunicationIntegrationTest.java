@@ -1,4 +1,4 @@
-package at.aau.ase.androidnetworkwrapperexample.networking;
+package at.aau.ase.androidnetworkwrapper.networking;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -7,9 +7,9 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import at.aau.ase.androidnetworkwrapperexample.networking.dto.TextMessage;
-import at.aau.ase.androidnetworkwrapperexample.networking.kryonet.NetworkClientKryo;
-import at.aau.ase.androidnetworkwrapperexample.networking.kryonet.NetworkServerKryo;
+import at.aau.ase.androidnetworkwrapper.networking.dto.TextMessage;
+import at.aau.ase.androidnetworkwrapper.networking.kryonet.NetworkClientKryo;
+import at.aau.ase.androidnetworkwrapper.networking.kryonet.NetworkServerKryo;
 
 public class NetworkCommunicationIntegrationTest {
     private static final String REQUEST_TEST = "request test";

@@ -1,4 +1,4 @@
-package at.aau.ase.androidnetworkwrapperexample.networking.kryonet;
+package at.aau.ase.androidnetworkwrapper.networking.kryonet;
 
 class NetworkConstants {
 

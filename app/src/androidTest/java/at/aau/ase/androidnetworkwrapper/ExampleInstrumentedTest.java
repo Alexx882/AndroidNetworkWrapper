@@ -1,4 +1,4 @@
-package at.aau.ase.androidnetworkwrapperexample;
+package at.aau.ase.androidnetworkwrapper;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("at.aau.ase.androidnetworkwrapperexample", appContext.getPackageName());
+        assertEquals("at.aau.ase.androidnetworkwrapper", appContext.getPackageName());
     }
 }

@@ -1,8 +1,8 @@
-package at.aau.ase.androidnetworkwrapperexample.networking;
+package at.aau.ase.androidnetworkwrapper.networking;
 
 import java.io.IOException;
 
-import at.aau.ase.androidnetworkwrapperexample.networking.dto.BaseMessage;
+import at.aau.ase.androidnetworkwrapper.networking.dto.BaseMessage;
 
 public interface NetworkServer {
 
