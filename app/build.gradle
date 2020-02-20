@@ -30,4 +30,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    // https://mvnrepository.com/artifact/com.esotericsoftware/kryonet
+    implementation 'com.esotericsoftware:kryonet:2.22.0-RC1'
+    // https://mvnrepository.com/artifact/de.javakaffee/kryo-serializers
+//    implementation 'de.javakaffee:kryo-serializers:0.26'
 }
