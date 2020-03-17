@@ -10,7 +10,7 @@ import java.io.IOException;
 import at.aau.ase.androidnetworkwrapper.networking.dto.BaseMessage;
 import at.aau.ase.androidnetworkwrapper.networking.NetworkClient;
 
-public class NetworkClientKryo implements NetworkClient {
+public class NetworkClientKryo implements NetworkClient, KryoNetComponent {
     private Client client;
     private Callback<BaseMessage> callback;
 

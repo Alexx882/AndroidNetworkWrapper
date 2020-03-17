@@ -7,13 +7,6 @@ import at.aau.ase.androidnetworkwrapper.networking.dto.BaseMessage;
 public interface NetworkServer {
 
     /**
-     * Register a class for serialization.
-     *
-     * @param c
-     */
-    void registerClass(Class c);
-
-    /**
      * Starts the Server.
      *
      * @throws IOException

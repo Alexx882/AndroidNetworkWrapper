@@ -7,13 +7,6 @@ import java.io.IOException;
 public interface NetworkClient {
 
     /**
-     * Register a class for serialization.
-     *
-     * @param c
-     */
-    void registerClass(Class c);
-
-    /**
      * Connects to a host.
      *
      * @param host

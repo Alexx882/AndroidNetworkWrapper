@@ -10,7 +10,7 @@ import at.aau.ase.androidnetworkwrapper.networking.Callback;
 import at.aau.ase.androidnetworkwrapper.networking.NetworkServer;
 import at.aau.ase.androidnetworkwrapper.networking.dto.BaseMessage;
 
-public class NetworkServerKryo implements NetworkServer {
+public class NetworkServerKryo implements NetworkServer, KryoNetComponent {
     private Server server;
     private Callback<BaseMessage> messageCallback;
 
