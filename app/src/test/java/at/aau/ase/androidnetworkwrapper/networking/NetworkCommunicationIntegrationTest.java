@@ -29,6 +29,8 @@ public class NetworkCommunicationIntegrationTest {
 
     @Test
     public void NetworkConnection_OneClient_SendAndReceiveText() throws IOException, InterruptedException {
+        System.out.printf("Main Thread ID: %d%n", Thread.currentThread().getId());
+
         startServer();
         startClient();
 
@@ -48,6 +50,8 @@ public class NetworkCommunicationIntegrationTest {
 
         server.start();
         server.registerCallback(argument -> {
+                    System.out.printf("Server Thread ID: %d%n", Thread.currentThread().getId());
+
                     if (first.get()) {
                         first.set(false);
                         // check correct polymorphism
@@ -75,6 +79,8 @@ public class NetworkCommunicationIntegrationTest {
         client.connect("localhost");
         client.registerCallback(argument ->
                 {
+                    System.out.printf("Client Thread ID: %d%n", Thread.currentThread().getId());
+
                     Assert.assertTrue(argument instanceof TextMessage);
                     Assert.assertEquals(RESPONSE_TEST, ((TextMessage) argument).text);
                     responseHandled.set(true);
