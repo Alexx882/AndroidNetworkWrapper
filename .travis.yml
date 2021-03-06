@@ -4,7 +4,7 @@
 # https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests.html
 
 language: android
-jdk: oraclejdk8
+jdk: openjdk11
 sudo: required
 
 before_cache:
@@ -22,10 +22,10 @@ android:
     - tools
     - tools
     - platform-tools
-    - android-22
-    - build-tools-26.1.1
+    - android-30
+    - build-tools-30.0.3
     - extra
-    - sys-img-armeabi-v7a-android-22
+#    - sys-img-armeabi-v7a-android-22
 
 ## uncomment android emulator if android integration tests are needed
 #before_script:
@@ -35,12 +35,16 @@ android:
 #  - adb shell input keyevent 82 &
   
 script:
-  - yes | sdkmanager "platforms;android-28" # accept license
+  - jdk_switcher use oraclejdk8             # use java 8 which is the last that is supported by android
+  - yes | sdkmanager "platforms;android-30" # accept licenses
+  - yes | sdkmanager "build-tools;30.0.3"   # accept licenses
   - chmod +x gradlew                        # make executable 
   - ./gradlew test jacocoTestReport
 ## uncomment test exec if android integration tests are needed
 #  - ./gradlew connectedAndroidTest
   - ./gradlew lint
+
+  - export JAVA_HOME=$HOME/openjdk11        # use java 11 which is needed for sonar
   - sonar-scanner
 
 addons:
