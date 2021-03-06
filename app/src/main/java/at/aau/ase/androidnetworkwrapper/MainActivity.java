@@ -26,4 +26,11 @@ public class MainActivity extends AppCompatActivity {
     private void startClient() {
         // todo
     }
+
+    /**
+     * Used as test coverage example.
+     */
+    public int add(int i, int j) {
+        return i + j;
+    }
 }
